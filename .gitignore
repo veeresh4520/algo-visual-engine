@@ -1,0 +1,36 @@
+# Node dependencies
+node_modules/
+**/node_modules/
+package-lock.json (if you want to ignore it, but usually package-lock.json is tracked. Let's keep package-lock.json tracked and only ignore node_modules)
+
+# Build outputs
+dist/
+**/dist/
+build/
+**/build/
+
+# Python virtual environments
+venv/
+**/venv/
+.venv/
+**/__pycache__/
+*.pyc
+
+# Local log files
+*.log
+vite-dev.err.log
+vite-dev.out.log
+
+# Environment variables & secrets
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDEs & System files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
