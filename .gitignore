@@ -1,7 +1,8 @@
 # Node dependencies
 node_modules/
 **/node_modules/
-package-lock.json (if you want to ignore it, but usually package-lock.json is tracked. Let's keep package-lock.json tracked and only ignore node_modules)
+.vite/
+**/.vite/
 
 # Build outputs
 dist/
