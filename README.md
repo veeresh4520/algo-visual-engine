@@ -132,17 +132,7 @@ Example:
 VITE_API_URL=http://localhost:5000
 ```
 
-## GitHub Upload Tip
 
-Before uploading to GitHub, do not include dependency or build output folders such as:
-
-```text
-node_modules
-frontend/node_modules
-frontend/dist
-```
-
-Add a `.gitignore` file if your repository does not already have one.
 
 ## License
 
