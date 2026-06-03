@@ -219,7 +219,7 @@ body {
 .speed-btn { background: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted); }
 .speed-btn.active { border-color: var(--accent); color: var(--accent); background: var(--bg-card); }
 
-/* ── Sort Bars ─────────────────────────────────────────────── */
+/* ── Sort Bars ───────────────────────────────────────────── */
 .sort-bars-container {
   display: flex;
   align-items: flex-end;
@@ -260,7 +260,7 @@ body {
   font-weight: 700;
 }
 
-/* ── Dual Viz ──────────────────────────────────────────────── */
+/* ── Dual Viz ────────────────────────────────────────────── */
 .dual-viz {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -325,7 +325,7 @@ body {
   font-weight: 600;
 }
 
-/* ── Metrics ───────────────────────────────────────────────── */
+/* ── Metrics ─────────────────────────────────────────────── */
 .metrics-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -358,7 +358,7 @@ body {
 .metric-row span { color: var(--text-muted); }
 .metric-row strong { font-family: 'JetBrains Mono', monospace; color: var(--text); }
 
-/* ── Charts ────────────────────────────────────────────────── */
+/* ── Charts ──────────────────────────────────────────────── */
 .charts-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -373,7 +373,7 @@ body {
   padding: 1rem;
 }
 
-/* ── Theory Panel ──────────────────────────────────────────── */
+/* ── Theory Panel ────────────────────────────────────────── */
 .theory-panel { }
 .theory-grid {
   display: grid;
@@ -462,7 +462,7 @@ body {
   line-height: 1.5;
 }
 
-/* ── List vs Set ───────────────────────────────────────────── */
+/* ── List vs Set ─────────────────────────────────────────── */
 .operation-tabs {
   display: flex;
   gap: 0.5rem;
@@ -484,7 +484,7 @@ body {
 .op-tab-btn.active { background: var(--accent); border-color: var(--accent); color: #0a0e1a; font-weight: 600; }
 .op-tab-btn:hover:not(.active) { border-color: var(--accent); color: var(--accent); }
 
-/* ── List Cells ────────────────────────────────────────────── */
+/* ── List Cells ──────────────────────────────────────────── */
 .list-cells {
   display: flex;
   flex-wrap: wrap;
