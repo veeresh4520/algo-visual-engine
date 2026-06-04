@@ -1,7 +1,7 @@
 /* ── AlgoLab Global Styles ──────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Sora:wght@300;400;600;700&display=swap');
 
-/* ── CSS Variables ─────────────────────────────────────────── */
+/* ── CSS Variables ────────────────────────────────────── */
 .dark {
   --bg: #0a0e1a;
   --bg-panel: #111827;
