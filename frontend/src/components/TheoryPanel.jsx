@@ -10,6 +10,7 @@ export default function TheoryPanel({ algorithms }) {
   if (!algorithms || algorithms.length === 0) return null;
 
   return (
+    // Thory Panel output - react 
     <div className="theory-panel">
       <h3 className="panel-title">📚 Algorithm Theory</h3>
       <div className="theory-grid">
