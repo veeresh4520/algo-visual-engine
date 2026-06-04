@@ -145,7 +145,7 @@ export default function SortingModule() {
         <h2 className="panel-title">⚙ Configuration</h2>
         <div className="input-grid">
           <div className="input-group">
-            <label>Custom Array</label>
+            <label>Custom Array's</label>
             <div className="input-row">
               <input
                 type="text"
@@ -167,7 +167,7 @@ export default function SortingModule() {
               className="slider"
             />
             <button className="btn btn-secondary" onClick={handleGenRandom}>
-              🎲 Random Array
+              🎲 Random Array  
             </button>
           </div>
 
@@ -257,15 +257,15 @@ export default function SortingModule() {
             </div>
           </div>
 
-          {isDone && <div className="done-badge">✅ Sorting Complete!</div>}
+          {isDone && <div className="done-badge">✅ Sorting's Complete!</div>}
         </section>
       )}
 
       {/* ── RESULTS PANEL ─────────────────────────────── */}
       {(apiResults || apiLoading) && (
         <section className="panel results-panel">
-          <h2 className="panel-title">📊 Performance Metrics</h2>
-          {apiLoading && <div className="loading-spinner">Measuring performance…</div>}
+          <h2 className="panel-title">📊 Performance  Metrics</h2>
+          {apiLoading && <div className="loading-spinner">Measuring performance…...</div>}
           {apiError && <div className="error-msg">{apiError}</div>}
           {apiResults && (
             <>
