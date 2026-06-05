@@ -47,4 +47,5 @@ useEffect(() => {
       </main>
     </div>
   );
+ console.log("User switched tab");
 }
