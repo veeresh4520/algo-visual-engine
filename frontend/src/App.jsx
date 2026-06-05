@@ -3,6 +3,10 @@ import SortingModule from "./components/SortingModule";
 import ListSetModule from "./components/ListSetModule";
 import Navbar from "./components/Navbar";
 import "./styles/global.css";
+import { lazy, Suspense } from "react";
+
+const SortingModule = lazy(() => import("./components/SortingModule"));
+const ListSetModule = lazy(() => import("./components/ListSetModule"));
 
 export default function App() {
  const [activeTab, setActiveTab] = useState(
