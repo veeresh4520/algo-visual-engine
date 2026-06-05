@@ -5,7 +5,14 @@ import Navbar from "./components/Navbar";
 import "./styles/global.css";
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState("sorting");
+ const [activeTab, setActiveTab] = useState(
+  localStorage.getItem("activeTab") || "sorting"
+);
+
+useEffect(() => {
+  localStorage.setItem("activeTab", activeTab);
+}, [activeTab]);
+  
   const [darkMode, setDarkMode] = useState(true);
 
   return (
