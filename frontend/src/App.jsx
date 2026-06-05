@@ -13,7 +13,13 @@ useEffect(() => {
   localStorage.setItem("activeTab", activeTab);
 }, [activeTab]);
   
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(
+  JSON.parse(localStorage.getItem("darkMode")) ?? true
+);
+
+useEffect(() => {
+  localStorage.setItem("darkMode", darkMode);
+}, [darkMode]);
 
   return (
     <div className={`app ${darkMode ? "dark" : "light"}`}>
