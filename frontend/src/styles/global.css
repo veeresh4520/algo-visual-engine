@@ -200,6 +200,9 @@ body {
   white-space: nowrap;
 }
 .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn {
+  transition: all 0.25s ease;
+}
 
 .btn-primary { background: var(--accent); color: #0a0e1a; }
 .btn-primary:hover:not(:disabled) { filter: brightness(1.1); transform: translateY(-1px); }
