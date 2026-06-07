@@ -423,7 +423,9 @@ body {
 .complexity-value.yellow { color: var(--yellow); }
 .complexity-value.red { color: var(--red); }
 .complexity-value.blue { color: var(--blue); }
-
+.app {
+  transition: background 0.3s ease, color 0.3s ease;
+}
 .code-toggle-btn {
   background: none;
   border: 1px solid var(--border);
