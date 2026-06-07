@@ -626,6 +626,10 @@ td.yellow { color: var(--yellow) !important; }
 .green { color: var(--green); }
 .red { color: var(--red); }
 .yellow { color: var(--yellow); }
+::selection {
+  background: var(--accent);
+  color: white;
+}
 
 /* ── Scrollbar ─────────────────────────────────────────────── */
 ::-webkit-scrollbar { width: 6px; height: 6px; }
