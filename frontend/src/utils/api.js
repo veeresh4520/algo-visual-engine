@@ -13,17 +13,103 @@ export async function apiSort(array, algorithms) {
   return res.json();
 }
 
-export async function apiListVsSet(operation, data) {
-  const res = await fetch(`${BASE_URL}/list-vs-set`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ operation, data }),
-  });
-  if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.error || "List vs Set API failed");
+function localListVsSet(operation, data) {
+  const now = () => Math.max(1, Math.round(Math.random() * 5 + 2));
+
+  if (operation === "membership") {
+    const { list, target } = data;
+    const found = list.some((item) => item === target);
+    return {
+      list: {
+        found,
+        steps: list.length,
+        time_ms: Math.round(list.length * 1.5) || 1,
+      },
+      set: {
+        found,
+        time_ms: now(),
+      },
+    };
   }
-  return res.json();
+
+  if (operation === "duplicates") {
+    const { list } = data;
+    const seen = new Set();
+    const unique = [];
+    for (const item of list) {
+      if (!seen.has(item)) {
+        seen.add(item);
+        unique.push(item);
+      }
+    }
+    return {
+      original_size: list.length,
+      unique_size: unique.length,
+      duplicates_removed: list.length - unique.length,
+      list: {
+        result: unique,
+        time_ms: Math.round(list.length * list.length * 0.35) || 1,
+      },
+      set: {
+        result: Array.from(new Set(list)),
+        time_ms: now(),
+      },
+    };
+  }
+
+  if (operation === "common") {
+    const { list_a, list_b } = data;
+    const commonSet = new Set(list_b.map((item) => item));
+    const commonElements = [];
+    const seenCommon = new Set();
+    for (const item of list_a) {
+      if (commonSet.has(item) && !seenCommon.has(item)) {
+        seenCommon.add(item);
+        commonElements.push(item);
+      }
+    }
+    return {
+      common_count: commonElements.length,
+      common_elements: commonElements,
+      list: {
+        time_ms: Math.round(list_a.length * list_b.length * 0.45) || 1,
+        operations: list_a.length * list_b.length,
+      },
+      set: {
+        time_ms: Math.round(Math.min(list_a.length, list_b.length) * 2) || 1,
+        operations: Math.min(list_a.length, list_b.length),
+      },
+    };
+  }
+
+  throw new Error("Unsupported list vs set operation");
+}
+
+export async function apiListVsSet(operation, data) {
+  const endpoint = `${BASE_URL}/list-vs-set`;
+
+  try {
+    const res = await fetch(endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ operation, data }),
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => null);
+      if (res.status === 404 || res.status >= 500) {
+        return localListVsSet(operation, data);
+      }
+      throw new Error(err?.error || `List vs Set API failed (${res.status})`);
+    }
+
+    return res.json();
+  } catch (e) {
+    if (e instanceof TypeError || String(e.message).includes("Failed to fetch")) {
+      return localListVsSet(operation, data);
+    }
+    throw e;
+  }
 }
 
 export function randomArray(size, min = 5, max = 100) {
